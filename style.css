@@ -1,0 +1,23 @@
+:root {
+    --color1: pink;
+    --color2: rgb(126, 126, 190);
+}
+
+* {
+    background-color: var(--color1);
+    color: var(--color2);
+}
+
+#head {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+#timer {
+    font-size: 25px;
+    padding: 18px 20px 0px 0px;
+}
