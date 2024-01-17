@@ -1,11 +1,13 @@
 :root {
-    --color1: pink;
-    --color2: rgb(126, 126, 190);
+    --color1:#e77dea;
+    --color2: rgb(106, 103, 103);
 }
 
 * {
-    background-color: var(--color1);
+    background-color: rgb(210, 161, 210);
     color: var(--color2);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    
 }
 
 #head {
@@ -15,9 +17,85 @@
 
 h1 {
     font-size: 25px;
+    padding: 10px;
+    margin: 5px;
+    border: 5px solid;
+    border-style: inset;
+    background: linear-gradient(
+        rgba(248, 244, 248, 0.803) 0%,
+        rgba(233, 150, 236, 0.936) 100%
+    );
+    
+}
+
+#timerformat {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
 }
 
 #timer {
     font-size: 25px;
-    padding: 18px 20px 0px 0px;
+    font-weight: bold;
 }
+
+h2 {
+    font-size: 25px;
+    padding: 0px 5px 0px 0px;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    padding: 150px 0px 0px 0px;
+}
+
+#start {
+    text-align: center;
+    padding: 50px;
+}
+
+#button {
+    font-size: 40px;
+    border: 5px solid;
+    border-style: inset;
+    background: linear-gradient(
+        rgba(248, 244, 248, 0.803) 0%,
+        rgba(233, 150, 236, 0.936) 100%
+    );
+    border-radius: 15px;
+    border-style: inset;
+    padding: 10px;
+}
+
+#quiz-container {
+    display:none;
+    text-align: center;
+  }
+  
+#question {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+  
+.answer-option {
+    font-size: 30px;
+    display: inline-block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 5px solid;
+    border-style: inset;
+    background: linear-gradient(
+        rgba(248, 244, 248, 0.803) 0%,
+        rgba(233, 150, 236, 0.936) 100%
+    );
+    padding: 10px;
+    margin: 15px;
+  }
+
+  #message {
+    color: green; 
+    font-weight: bold;
+    margin-top: 10px;
+  }
