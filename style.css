@@ -70,9 +70,9 @@ h3 {
 }
 
 #quiz-container {
-    display:none;
-    text-align: center;
-  }
+    display: none;
+    text-align: center; 
+}
   
 #question {
     font-size: 40px;
@@ -80,9 +80,9 @@ h3 {
   }
   
 .answer-option {
-    font-size: 30px;
+    font-size: 20px;
+    width: 400px;
     display: inline-block;
-    margin-bottom: 10px;
     cursor: pointer;
     border: 5px solid;
     border-style: inset;
@@ -91,11 +91,85 @@ h3 {
         rgba(233, 150, 236, 0.936) 100%
     );
     padding: 10px;
-    margin: 15px;
-  }
+    margin: 15px 300px 15px 300px;
+}
+
+.answer-option .answer-options {
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+    }
+
+.answer-option:hover, 
+.answer-option:hover .answer-options {
+    box-shadow: inset 0px 0px 8px
+    rgba(232, 102, 236, 1), 0 0 15px
+    rgb(220, 0, 228);
+}
+
+.answer-option:hover {
+    box-shadow: inset 0px 0px 8px
+    rgba(232, 102, 236, 1), 0 0 15px
+    rgb(207, 2, 214);
+}
 
   #message {
-    color: green; 
+    color: rgb(133, 133, 133); 
     font-weight: bold;
     margin-top: 10px;
+    font-size: 25px;
+  }
+
+  #initials-section p {
+    font-size: 40px;
+    padding: 20px;
+    margin: 5px;
+  }
+
+  #save {
+    font-size: 30px;
+    margin: 20px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 15px;
+    background: linear-gradient(
+        rgba(248, 244, 248, 0.803) 0%,
+        rgba(233, 150, 236, 0.936) 100%
+    );
+  }
+
+  #save:hover, 
+  #save:hover #initials-section{
+      box-shadow: inset 0px 0px 8px
+      rgba(232, 102, 236, 1), 0 0 15px
+      rgb(220, 0, 228);
+  }
+
+  #save:hover {
+    box-shadow: inset 0px 0px 8px
+    rgba(232, 102, 236, 1), 0 0 15px
+    rgb(207, 2, 214);
+}
+
+  #flex {
+    display: flex;
+  }
+
+.leaderboard-header {
+    display: inline;
+    font-size: 50px;
+    margin: 0px 0px 50px 500px;
+    padding: 10px;
+    border: 5px solid;
+    border-style: inset;
+    background: linear-gradient(
+        rgba(248, 244, 248, 0.803) 0%,
+        rgba(233, 150, 236, 0.936) 100%
+    );
+}
+
+.score-item {
+    margin: 20px 0px 0px 490px;
+    list-style: none;
+    font-size: 40px;
+    padding: 10px;
+
   }
