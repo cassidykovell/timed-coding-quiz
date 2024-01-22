@@ -1,6 +1,6 @@
 # timed-coding-quiz
 
-https://github.com/cassidykovell/timed-coding-quiz.git
+https://cassidykovell.github.io/timed-coding-quiz/
 
 ## Description
 
