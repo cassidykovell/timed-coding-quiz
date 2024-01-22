@@ -87,7 +87,7 @@ var quizQuestions = [
       });
       
       start.style.display = "none";
-      document.querySelector("h3").style.display = "none";
+      document.querySelector("h2").style.display = "none";
     }
     
     function startQuiz() {
@@ -105,31 +105,20 @@ var quizQuestions = [
       if (selectedOption.classList.contains("answer-option")) {
         var selectedOptionIndex = Array.from(answerOptionsElement.children).indexOf(selectedOption);
         questionIndex++;
-        if (questionIndex < quizQuestions.length) {
-        var currentQuestion = quizQuestions[questionIndex];
- 
+        var currentQuestion = quizQuestions[questionIndex - 1];
         if (selectedOptionIndex === currentQuestion.correctAnswerIndex) {
           messageElement.textContent = "Correct!";
-        
           correctAnswers++;
         } else {
           messageElement.textContent = "Incorrect!";
           remainingTime -= 5;
         }
-    
         setTimeout(function () {
           messageElement.textContent = "";
         }, 2000);
-    
-        
         console.log(questionIndex);
         console.log(quizQuestions.length);
-          displayQuestion();
-        } else {
-          console.log("Inside else statement");
-          messageElement.textContent = "Quiz finished!";
-          checkQuizEnd();
-        }
+        displayQuestion();
       }
     });
     
@@ -162,56 +151,49 @@ var quizQuestions = [
       finalScore.innerHTML = remainingTime;
   }
 
-  var localStorageData = JSON.parse(localStorage.getItem('quiz'));
-  displayScores(localStorageData);
+    var localStorageData = JSON.parse(localStorage.getItem('quiz'));
+    displayScores(localStorageData);
 
-  save.addEventListener('click', function(event) {
-  event.preventDefault();
-  
-  var initials = userInitials.value;
-  var userData = {
-    name: initials,
-    score: remainingTime
-  };
-  
-  var localStorageData = JSON.parse(localStorage.getItem('quiz'));
-  
-  if (localStorageData === null) {
-    localStorageData = [];
-  }
-  
-  localStorageData.push(userData);
-  
-  localStorage.setItem('quiz', JSON.stringify(localStorageData));
-  
-  initialsSections.style.display = "none";
-  leaderboard.style.display = "block";
-  
-  displayScores(localStorageData);
-});
+    save.addEventListener('click', function(event) {
+      event.preventDefault();
+      var initials = userInitials.value;
+      var userData = {
+        name: initials,
+        score: remainingTime
+      };
+      var localStorageData = JSON.parse(localStorage.getItem('quiz'));
+        if (localStorageData === null) {
+        localStorageData = [];
+      }
+      localStorageData.push(userData);
+      localStorage.setItem('quiz', JSON.stringify(localStorageData));
+      initialsSections.style.display = "none";
+      leaderboard.style.display = "block";
+      displayScores(localStorageData);
+      });
 
-function displayScores(scores) {
-  var scoreboard = document.getElementById('leaderboard-container');
-  scoreboard.innerHTML = '';
-  
-  if (scores !== null) {
-    scores.sort(function(a, b) {
-      return b.score - a.score;
-    });
+    function displayScores(scores) {
+      var scoreboard = document.getElementById('leaderboard-container');
+      scoreboard.innerHTML = '';
+        if (scores !== null) {
+          scores.sort(function(a, b) {
+            return b.score - a.score;
+          });
 
-    var leaderboardHeader = document.createElement('h2');
+      var leaderboardHeader = document.createElement('h2');
       leaderboardHeader.textContent = "Leaderboard";
       leaderboardHeader.classList.add('leaderboard-header');
       scoreboard.appendChild(leaderboardHeader);
+      
+      scores.forEach(function(score) {
+        var listItem = document.createElement('li');
+        listItem.textContent = score.name + ': ' + score.score;
+        listItem.classList.add('score-item');
+        scoreboard.appendChild(listItem);
+        });
+      }
+    }
 
-    scores.forEach(function(score) {
-      var listItem = document.createElement('li');
-      listItem.textContent = score.name + ': ' + score.score;
-      listItem.classList.add('score-item');
-      scoreboard.appendChild(listItem);
-    });
-  }
-}
 
 
   
