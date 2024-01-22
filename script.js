@@ -1,3 +1,4 @@
+/*setting global variables*/
 var timer = document.getElementById("timer");
 var start = document.getElementById("button");
 var quizContainer = document.getElementById("quiz-container");
@@ -12,6 +13,7 @@ var userInitials = document.getElementById("user-initials");
 var correctAnswers = 0;
 var remainingTime = 75;
 var timerInterval;
+/*adding the quiz questions, possible answers, and correct answers*/
 var quizQuestions = [
       {
         question: "What does a 'for' loop do?",
@@ -64,11 +66,12 @@ var quizQuestions = [
       correctAnswerIndex: 2
       }
     ];
-
+/*making sure that the leaderboard is not showing before the quiz is started*/
     var questionIndex = 0;
     leaderboard.style.display = "none";
     initialsSections.style.display = "none";
-    
+ 
+/*creating a function that displays the questions from the quiz question variables and correctly displays the questions and possible answers*/
     function displayQuestion() {
       if (questionIndex >= quizQuestions.length) {
         endQuiz();
@@ -90,6 +93,7 @@ var quizQuestions = [
       document.querySelector("h2").style.display = "none";
     }
     
+/*function for starting the quiz and resetting what is necessary plus starting the timer and displaying the questions. Also an event listerner for the button*/
     function startQuiz() {
       correctAnswers = 0;
       quizContainer.style.display = "block";
@@ -99,7 +103,8 @@ var quizQuestions = [
     }
     
     start.addEventListener("click", startQuiz);
-    
+  
+/*event listener for the answer section and conditions for a message to tell the user whether or not they got the answer correct as well as subtract time if they get one wrong*/
     answerOptionsElement.addEventListener("click", function (event) {
       var selectedOption = event.target;
       if (selectedOption.classList.contains("answer-option")) {
@@ -121,7 +126,8 @@ var quizQuestions = [
         displayQuestion();
       }
     });
-    
+
+/*function to start the timer*/
     function startTimer() {
       remainingTime = 75;
       timer.textContent = remainingTime;
@@ -137,6 +143,7 @@ var quizQuestions = [
       }, 1000);
     }
     
+/*function to see if the quiz is over and as well as end the quiz*/
     function checkQuizEnd() {
       console.log("endQuiz")
         endQuiz();
@@ -150,7 +157,7 @@ var quizQuestions = [
       initialsSections.style.display = "block";
       finalScore.innerHTML = remainingTime;
   }
-
+/*storage of quiz data in local storage as well as a function displaying the leaderboard*/
     var localStorageData = JSON.parse(localStorage.getItem('quiz'));
     displayScores(localStorageData);
 

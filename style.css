@@ -1,3 +1,4 @@
+/*setting root colors and general formating for the page*/
 :root {
     --color1:#e77dea;
     --color2: rgb(106, 103, 103);
@@ -10,6 +11,7 @@
     
 }
 
+/*formating and styling for the timer and header area*/
 #head {
     display: flex;
     justify-content: right;
@@ -30,6 +32,7 @@ h1 {
     font-size: 25px;
 }
 
+/*formating and styling for start page/start button and h2 elements */
 h2 {
     display: flex;
     justify-content: center;
@@ -67,6 +70,7 @@ h2 {
     rgb(220, 0, 228);
 }
 
+/*formatting for the actual quiz so it doesn't show up before its supposed to and general styling*/
 #quiz-container {
     display: none;
     text-align: center; 
@@ -110,13 +114,15 @@ h2 {
     rgb(207, 2, 214);
 }
 
-  #message {
+/*styling for the message that lets the user know whether or not they got it correct*/
+#message {
     color: rgb(133, 133, 133); 
     font-weight: bold;
     margin-top: 10px;
     font-size: 25px;
   }
 
+/*styling and formatting for the leader board and the save button/text box for initials*/
   #initials-section p {
     font-size: 40px;
     padding: 20px;
